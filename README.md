@@ -8,6 +8,8 @@ The repository does not include the submission PDF or a public paper link.
 
 ## Website
 
+[Open the website](https://method-notes.github.io/LLM-Anomaly-Detection-Survey/).
+
 The site presents Boundary-Modeling AD and Alignment-Based AD, five method
 families, a searchable directory of 181 selected taxonomy examples, the
 alignment framework, and the survey's coverage and research challenges.
@@ -35,8 +37,7 @@ works are excluded from the directory count.
 
 ## Publishing
 
-The repository is stored privately while the manuscript is being prepared.
-For later GitHub Pages publication, serve the root of the `main` branch.
+GitHub Pages serves the root of the `main` branch.
 All resource paths are relative and support a project-page subdirectory.
 
 ## Third-Party Assets
