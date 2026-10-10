@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fafbfc">
+  <title>Anomaly Detection in LLM-Based Systems: A Survey</title>
+  <meta name="description" content="A survey of anomaly detection in LLM-based systems. Explore Boundary-Modeling AD, Alignment-Based AD, and 181 taxonomy examples.">
+  <meta property="og:title" content="Anomaly Detection in LLM-Based Systems: A Survey">
+  <meta property="og:description" content="Two detection paradigms. Five method families. A research companion by Chiming Duan et al., Peking University.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="styles.css">
+  <script src="assets/lucide.min.js" defer></script>
+  <script src="assets/data.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#overview">Skip to content</a>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="#top" aria-label="Survey home"><span class="brand-mark">ad<span>.</span></span><span>LLM Systems<span class="brand-divider"> / </span>Survey</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#overview">Overview</a><a href="#methods">Methods</a><a href="#framework">Framework</a><a href="#citation">Cite</a>
+      </nav>
+      <button class="icon-button menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav"><i data-lucide="menu"></i></button>
+    </div>
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden><a href="#overview">Overview</a><a href="#methods">Methods</a><a href="#framework">Framework</a><a href="#citation">Citation</a></nav>
+  </header>
+
+  <main id="top">
+    <section id="introduction" class="hero" aria-labelledby="paper-title">
+      <canvas id="hero-canvas" aria-hidden="true"></canvas>
+      <div class="hero-content container">
+        <p class="eyebrow"><span class="small-line"></span> Peking University <span class="dot-separator">/</span> Research survey <span class="dot-separator">/</span> 2026</p>
+        <h1 id="paper-title">Anomaly Detection<br>in LLM-Based Systems<span class="survey-subtitle">A Survey</span></h1>
+        <p class="hero-description">How do detectors establish what behavior to expect<br class="desktop-break"> when LLM outputs and execution paths can change?</p>
+        <p class="authors"><span class="author-name">Chiming Duan</span><span>·</span><span class="author-name">Tong Jia<sup>*</sup></span><span>·</span><span class="author-name">Minghua He</span><span>·</span><span class="author-name">Lingzhe Zhang</span><span>·</span><span class="author-name">Haobo Wang</span><span>·</span><span class="author-name">Ying Li<sup>*</sup></span></p>
+        <div class="hero-actions"><a class="button primary" href="#methods">Explore the methods<i data-lucide="arrow-down"></i></a></div>
+      </div>
+      <div class="scene-label scene-label-boundary"><span class="legend-mark blue"></span>Boundary-Modeling AD<small>Historical runtime data → pre-modeled boundary</small></div>
+      <div class="scene-label scene-label-alignment"><span class="legend-mark orange"></span>Alignment-Based AD<small>Requirements ↔ current behavior</small></div>
+      <p class="hero-bottom">Two ways to establish anomaly decision conditions</p>
+    </section>
+
+    <div class="stats-band"><div class="container stats-grid">
+      <div><strong>181</strong><span>Taxonomy examples</span></div><div><strong>2</strong><span>Detection paradigms</span></div><div><strong>5</strong><span>Method families</span></div><div><strong>3</strong><span>Requirement dimensions</span></div>
+    </div></div>
+
+    <section id="overview" class="section container">
+      <div class="section-heading"><p class="section-index">01 / The perspective</p><h2>What makes a behavior anomalous?</h2><p>Anomaly detection identifies behavior patterns that do not conform to expected behavior. This survey organizes methods by how they establish and apply the decision conditions.</p></div>
+      <div class="paradigm-columns">
+        <article class="paradigm boundary"><div class="paradigm-heading"><span class="legend-mark blue"></span><span class="overline">108 examples</span></div><h3>Boundary-Modeling AD</h3><p>Constructs a boundary from the statistical, structural, or feature regularities of historical runtime data. Detection checks whether current behavior patterns lie within the accepted region.</p><div class="flow-line"><span>Historical data</span><i data-lucide="arrow-right"></i><span>Boundary</span><i data-lucide="arrow-right"></i><span>Decision</span></div><a class="text-link" href="#methods" data-paradigm="Boundary-Modeling AD">Explore boundary-modeling methods<i data-lucide="arrow-up-right"></i></a></article>
+        <article class="paradigm alignment"><div class="paradigm-heading"><span class="legend-mark orange"></span><span class="overline">73 examples</span></div><h3>Alignment-Based AD</h3><p>Constructs an alignment model connecting current behavior patterns with applicable requirements under the execution context. Detection evaluates its decision conditions; requirement violations indicate anomalies.</p><div class="flow-line"><span>Requirements + behavior</span><i data-lucide="arrow-right"></i><span>Alignment model</span><i data-lucide="arrow-right"></i><span>Decision</span></div><a class="text-link" href="#methods" data-paradigm="Alignment-Based AD">Explore alignment-based methods<i data-lucide="arrow-up-right"></i></a></article>
+      </div>
+      <div class="insight"><span class="insight-label">The central difficulty</span><p>Different behavior patterns may fulfill the same request. Similar output formats or execution structures may still conceal anomalies. Historical resemblance alone may therefore be insufficient for a reliable anomaly decision.</p></div>
+      <figure class="paper-figure">
+        <div class="figure-toolbar"><div class="figure-tabs" role="tablist" aria-label="Overview figures"><button role="tab" aria-selected="true" aria-controls="overview-figure" id="figure-tab-0" data-figure="paradigms">Paradigm comparison</button><button role="tab" aria-selected="false" aria-controls="overview-figure" id="figure-tab-1" data-figure="motivation" tabindex="-1">Motivation</button></div><button class="icon-button" id="expand-overview" aria-label="Expand overview figure" title="Expand figure"><i data-lucide="maximize-2"></i></button></div>
+        <div id="overview-figure" role="tabpanel" aria-labelledby="figure-tab-0"><img id="overview-image" src="assets/paradigms.png" width="5307" height="2342" loading="lazy" alt="Comparison of Boundary-Modeling AD and Alignment-Based AD using expected and observed behavior."></div>
+        <figcaption id="overview-caption">Comparison of Boundary-Modeling AD and Alignment-Based AD. From the survey.</figcaption>
+      </figure>
+    </section>
+
+    <section class="taxonomy-band" aria-labelledby="taxonomy-title"><div class="container section">
+      <div class="section-heading compact"><p class="section-index">02 / The taxonomy</p><h2 id="taxonomy-title">One field. Two paradigms.</h2><p>Five principal families organize the selected methods by their detection mechanisms.</p></div>
+      <div class="taxonomy-groups">
+        <div class="taxonomy-group"><h3><span class="legend-mark blue"></span>Boundary-Modeling AD<span>108</span></h3>
+          <a class="family-row" href="#methods" data-family="Distributional Boundary Modeling"><span><strong>Distributional Boundary Modeling</strong><small>Probabilities, distances, and normal patterns</small></span><span class="family-count">38<i data-lucide="arrow-up-right"></i></span></a>
+          <a class="family-row" href="#methods" data-family="Feature-Based Boundary Modeling"><span><strong>Feature-Based Boundary Modeling</strong><small>Predefined, pretrained, task-specific, and adaptive features</small></span><span class="family-count">70<i data-lucide="arrow-up-right"></i></span></a>
+        </div>
+        <div class="taxonomy-group"><h3><span class="legend-mark orange"></span>Alignment-Based AD<span>73</span></h3>
+          <a class="family-row" href="#methods" data-family="SLO Alignment"><span><strong>SLO Alignment</strong><small>Operational goals and constraints</small></span><span class="family-count">3<i data-lucide="arrow-up-right"></i></span></a>
+          <a class="family-row" href="#methods" data-family="Intent Alignment"><span><strong>Intent Alignment</strong><small>Requested tasks, claims, and supporting evidence</small></span><span class="family-count">45<i data-lucide="arrow-up-right"></i></span></a>
+          <a class="family-row" href="#methods" data-family="Safety Alignment"><span><strong>Safety Alignment</strong><small>Policies, contracts, provenance, and actions</small></span><span class="family-count">25<i data-lucide="arrow-up-right"></i></span></a>
+        </div>
+      </div><p class="source-note">Each example is assigned to one principal family. Counts describe the survey's selected examples, not the overall publication population.</p>
+    </div></section>
+
+    <section id="methods" class="section container">
+      <div class="section-heading heading-with-action"><div><p class="section-index">03 / The method directory</p><h2>Explore the methods</h2><p>181 examples from the manuscript's active taxonomy.</p></div><button class="button secondary" id="export-methods"><i data-lucide="download"></i>Export CSV</button></div>
+      <form class="filter-bar" id="filters" role="search">
+        <div class="search-field"><i data-lucide="search" aria-hidden="true"></i><label class="sr-only" for="search">Search methods, titles, or families</label><input type="search" id="search" placeholder="Search methods, titles, or families" autocomplete="off"><button type="button" class="icon-button" id="clear-search" aria-label="Clear search" title="Clear search" hidden><i data-lucide="x"></i></button></div>
+        <div class="select-field"><label for="family-filter">Family</label><select id="family-filter"><option value="">All families</option><option>Distributional Boundary Modeling</option><option>Feature-Based Boundary Modeling</option><option>SLO Alignment</option><option>Intent Alignment</option><option>Safety Alignment</option></select></div>
+        <div class="select-field"><label for="year-filter">Year</label><select id="year-filter"><option value="">All years</option><option>2026</option><option>2025</option><option>2024</option><option>2023</option><option>2022</option></select></div>
+        <div class="select-field"><label for="sort-filter">Sort</label><select id="sort-filter"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="name">Name A–Z</option></select></div>
+      </form>
+      <div class="directory-meta"><div class="paradigm-filters" role="group" aria-label="Detection paradigm"><button type="button" aria-pressed="true" data-filter-paradigm="">All <span>181</span></button><button type="button" aria-pressed="false" data-filter-paradigm="Boundary-Modeling AD"><span class="legend-mark blue"></span>Boundary<span>108</span></button><button type="button" aria-pressed="false" data-filter-paradigm="Alignment-Based AD"><span class="legend-mark orange"></span>Alignment<span>73</span></button></div><p id="result-count" aria-live="polite"></p></div>
+      <div class="methods-table-wrap"><table class="methods-table"><thead><tr><th scope="col">Method / publication</th><th scope="col">Principal family</th><th scope="col">Year</th><th scope="col"><span class="sr-only">Publication link</span></th></tr></thead><tbody id="method-rows"></tbody></table><div id="empty-state" hidden><i data-lucide="search-x"></i><h3>No matching methods</h3><p>Try a different title, year, or family.</p><button class="button secondary" id="reset-filters">Reset filters</button></div></div>
+      <div class="pagination"><span id="page-info"></span><div><button class="icon-button" id="prev-page" aria-label="Previous page" title="Previous page"><i data-lucide="arrow-left"></i></button><span id="page-number"></span><button class="icon-button" id="next-page" aria-label="Next page" title="Next page"><i data-lucide="arrow-right"></i></button></div></div>
+      <p class="source-note">Bibliographic years follow the manuscript roster; they are not uniformly first-publication dates. Hybrid methods are listed under their principal mechanism.</p>
+      <noscript><p>The complete method directory is available as a <a href="assets/survey-methods.csv">CSV download</a>.</p></noscript>
+    </section>
+
+    <section id="framework" class="framework-band"><div class="section container">
+      <div class="section-heading"><p class="section-index">04 / Alignment in practice</p><h2>From requirements to anomaly decisions.</h2><p>Five activities describe how alignment models are constructed, evaluated, and updated. They can be combined and revisited as execution changes.</p></div>
+      <div class="framework-layout"><div class="stage-tabs" role="tablist" aria-label="Alignment framework activities" aria-orientation="vertical">
+        <button role="tab" id="stage-0" aria-selected="true" aria-controls="stage-panel" data-stage="0"><span>01</span>Requirement Instantiation<i data-lucide="arrow-right"></i></button>
+        <button role="tab" id="stage-1" aria-selected="false" aria-controls="stage-panel" data-stage="1" tabindex="-1"><span>02</span>Behavior Representation<i data-lucide="arrow-right"></i></button>
+        <button role="tab" id="stage-2" aria-selected="false" aria-controls="stage-panel" data-stage="2" tabindex="-1"><span>03</span>Dynamic Alignment Construction<i data-lucide="arrow-right"></i></button>
+        <button role="tab" id="stage-3" aria-selected="false" aria-controls="stage-panel" data-stage="3" tabindex="-1"><span>04</span>Alignment Evaluation<i data-lucide="arrow-right"></i></button>
+        <button role="tab" id="stage-4" aria-selected="false" aria-controls="stage-panel" data-stage="4" tabindex="-1"><span>05</span>Model Evolution<i data-lucide="arrow-right"></i></button>
+      </div><div class="stage-panel" id="stage-panel" role="tabpanel" aria-labelledby="stage-0" tabindex="0"><span class="overline" id="stage-kicker"></span><h3 id="stage-title"></h3><p id="stage-description"></p><dl><div><dt>Input</dt><dd id="stage-input"></dd></div><div><dt>Result</dt><dd id="stage-output"></dd></div></dl></div></div>
+      <figure class="paper-figure framework-figure"><div class="figure-toolbar"><span>Five-stage framework</span><button class="icon-button" data-expand="framework" aria-label="Expand framework figure" title="Expand figure"><i data-lucide="maximize-2"></i></button></div><img src="assets/framework.png" width="4028" height="1567" loading="lazy" alt="Requirement instantiation and behavior representation feed dynamic alignment construction and alignment evaluation; model evolution updates information used by these activities."><figcaption>Numbering identifies activities, not a mandatory execution order.</figcaption></figure>
+    </div></section>
+
+    <section class="section container" id="scope">
+      <div class="section-heading"><p class="section-index">05 / Coverage & open questions</p><h2>A view across the research landscape.</h2><p>The scope includes LLM-based applications, RAG systems, agents, and their runtime components for serving, orchestration, observability, verification, and governance.</p></div>
+      <div class="coverage-layout"><div class="coverage-copy"><h3>How the literature was selected</h3><p>The search covered ACM Digital Library, IEEE Xplore, Scopus, Web of Science, and arXiv, for records from January 2022 available at the July 10, 2026 retrieval cutoff.</p><p>Representative examples were selected for methodological distinctiveness and taxonomy coverage. Earlier foundational work was identified through backward reference tracing.</p><div class="screening-stats"><div><strong>5,658</strong><span>Retrieved records</span></div><div><strong>4,157</strong><span>After deduplication</span></div><div><strong>181</strong><span>Taxonomy examples</span></div></div></div><figure class="coverage-figure"><button class="image-button" data-expand="statistics" aria-label="Expand publication statistics"><img src="assets/publication-statistics.png" loading="lazy" alt="Composition of 181 taxonomy examples and quarterly counts of 173 dated examples through 2026 Q2."></button><figcaption>The time series covers 173 dated examples through 2026 Q2. It is not a publication census.</figcaption></figure></div>
+      <div class="challenges"><h3>Five open challenges</h3><details open><summary><span>01</span>Uncertainty in Requirements<i data-lucide="plus"></i></summary><p>Ambiguous or implicit goals can lead to different anomaly decisions for the same behavior. Requirement instantiation must preserve intended goals and constraints while making unresolved ambiguity explicit.</p></details><details><summary><span>02</span>Multi-Requirement Alignment<i data-lucide="plus"></i></summary><p>SLO, user intent, and safety requirements can interact or conflict. Evaluation must retain separate condition-level results and evidence; achieving one goal does not cancel a mandatory constraint violation.</p></details><details><summary><span>03</span>Distortion in Alignment<i data-lucide="plus"></i></summary><p>Mapping requirements and behavior into related representations may weaken features that reveal a violation. Representational similarity should not be mistaken for conformity to expected behavior.</p></details><details><summary><span>04</span>Overhead in Alignment<i data-lucide="plus"></i></summary><p>Evidence retrieval, inference, verification, and model updates incur runtime costs. Incremental updates and selective verification must be evaluated alongside detection effectiveness and delay.</p></details><details><summary><span>05</span>Interference from Intervention<i data-lucide="plus"></i></summary><p>Blocking, retrying, or replanning too early may interrupt useful reasoning and self-correction. Intervention should account for subsequent execution and final task outcomes.</p></details></div>
+    </section>
+
+    <section id="citation" class="citation-band"><div class="section container citation-layout"><div><p class="section-index">06 / Citation</p><h2>Cite this survey.</h2><p>Manuscript in preparation · 2026<br>Chiming Duan et al., Peking University</p><div class="citation-links"><a class="text-link" href="assets/survey.bib" download>Download BibTeX<i data-lucide="arrow-down-to-line"></i></a></div></div><div class="citation-code"><div class="figure-toolbar"><span>BibTeX</span><button class="icon-button" id="copy-citation" title="Copy citation" aria-label="Copy BibTeX citation"><i data-lucide="copy"></i></button></div><pre><code id="bibtex">@unpublished{duan2026anomalydetection,
+  title  = {Anomaly Detection in LLM-Based
+            Systems: A Survey},
+  author = {Duan, Chiming and Jia, Tong and
+            He, Minghua and Zhang, Lingzhe and
+            Wang, Haobo and Li, Ying},
+  year   = {2026},
+  note   = {Manuscript, Peking University}
+}</code></pre><p>Publication details will be added when available.</p></div></div></section>
+  </main>
+  <footer class="container"><a class="brand-mark" href="#top" aria-label="Back to top">ad<span>.</span></a><p>Anomaly Detection in LLM-Based Systems: A Survey<br><span>Peking University · 2026</span></p><div><span>Corresponding authors</span><a href="mailto:jia.tong@pku.edu.cn">Tong Jia<i data-lucide="arrow-up-right"></i></a><a href="mailto:li.ying@pku.edu.cn">Ying Li<i data-lucide="arrow-up-right"></i></a></div></footer>
+  <dialog id="figure-dialog" aria-labelledby="dialog-title"><div class="dialog-toolbar"><h2 id="dialog-title"></h2><div><a class="icon-button" id="download-figure" download aria-label="Download figure" title="Download figure"><i data-lucide="download"></i></a><button class="icon-button" id="close-dialog" aria-label="Close figure" title="Close figure"><i data-lucide="x"></i></button></div></div><div class="dialog-image"><img id="dialog-image" alt=""></div></dialog>
+  <div class="toast" id="toast" role="status" hidden></div>
+</body>
+</html>
