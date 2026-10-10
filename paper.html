@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8fa">
+  <title>Preprint v1 | Anomaly Detection in LLM-Based Systems: A Survey</title>
+  <link rel="stylesheet" href="assets/pdfjs/pdf_viewer.css">
+  <link rel="stylesheet" href="paper.css">
+  <script src="assets/lucide.min.js" defer></script>
+  <script src="paper.mjs" type="module"></script>
+</head>
+<body>
+  <header id="reader-toolbar">
+    <div class="toolbar-row">
+      <div class="reader-title">
+        <a class="tool" href="./" title="Back to survey" aria-label="Back to survey"><i data-lucide="arrow-left"></i></a>
+        <h1 title="Anomaly Detection in LLM-Based Systems: A Survey">Anomaly Detection in LLM-Based Systems: A Survey<small>Preprint v1</small></h1>
+      </div>
+      <div class="page-controls" aria-label="Page navigation">
+        <button class="tool" id="previous-page" title="Previous page" aria-label="Previous page" disabled><i data-lucide="chevron-left"></i></button>
+        <label class="sr-only" for="page-number">Page number</label>
+        <input id="page-number" type="number" min="1" value="1" disabled>
+        <span id="page-count">/ 34</span>
+        <button class="tool" id="next-page" title="Next page" aria-label="Next page" disabled><i data-lucide="chevron-right"></i></button>
+      </div>
+      <div class="reader-tools">
+        <button class="tool zoom-step" id="zoom-out" title="Zoom out" aria-label="Zoom out" disabled><i data-lucide="minus"></i></button>
+        <label class="sr-only" for="zoom">Zoom</label>
+        <select id="zoom" disabled><option value="auto">Auto</option><option value="page-width">Fit width</option><option value="page-fit">Fit page</option><option value="0.75">75%</option><option value="1">100%</option><option value="1.25">125%</option><option value="1.5">150%</option><option value="2">200%</option><option value="custom" disabled>Custom</option></select>
+        <button class="tool zoom-step" id="zoom-in" title="Zoom in" aria-label="Zoom in" disabled><i data-lucide="plus"></i></button>
+        <button class="tool" id="toggle-find" title="Find in paper" aria-label="Find in paper" aria-controls="find-bar" aria-expanded="false" disabled><i data-lucide="search"></i></button>
+        <a class="tool" href="assets/preprint-v1.pdf" download="Anomaly-Detection-in-LLM-Based-Systems-v1.pdf" title="Download PDF" aria-label="Download PDF"><i data-lucide="download"></i></a>
+      </div>
+    </div>
+    <div id="find-bar" hidden>
+      <label class="sr-only" for="find-query">Find in paper</label>
+      <input type="search" id="find-query" placeholder="Find in paper" autocomplete="off">
+      <span id="find-result" role="status"></span>
+      <button class="tool" id="find-previous" title="Previous match" aria-label="Previous match"><i data-lucide="arrow-up"></i></button>
+      <button class="tool" id="find-next" title="Next match" aria-label="Next match"><i data-lucide="arrow-down"></i></button>
+      <button class="tool" id="close-find" title="Close search" aria-label="Close search"><i data-lucide="x"></i></button>
+    </div>
+  </header>
+  <div id="viewerContainer" role="main" tabindex="0" aria-label="Survey PDF">
+    <div id="viewer" class="pdfViewer"></div>
+  </div>
+  <div id="reader-status" role="status"><p id="status-text">Loading paper...</p><a href="assets/preprint-v1.pdf" download>Download PDF</a></div>
+  <noscript><p class="no-script"><a href="assets/preprint-v1.pdf">Open the PDF</a></p></noscript>
+</body>
+</html>
