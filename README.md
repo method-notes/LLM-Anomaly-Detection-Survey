@@ -9,7 +9,7 @@ The manuscript is in preparation for submission to ACM Computing Surveys.
 
 [Preprint v1](https://github.com/method-notes/LLM-Anomaly-Detection-Survey/releases/tag/preprint-v1)
 was released on October 10, 2026. The complete 34-page manuscript is available
-for [direct PDF viewing](https://method-notes.github.io/LLM-Anomaly-Detection-Survey/paper.html)
+for [direct PDF viewing](https://method-notes.github.io/LLM-Anomaly-Detection-Survey/assets/preprint-v1.pdf)
 and as a [Release download](https://github.com/method-notes/LLM-Anomaly-Detection-Survey/releases/download/preprint-v1/main.pdf).
 This preprint has not been peer reviewed. The release notes include the
 authors, abstract, and PDF SHA-256 checksum.
@@ -54,5 +54,5 @@ All resource paths are relative and support a project-page subdirectory.
 Lucide is distributed under the ISC license. Its notice is retained in
 `assets/LUCIDE-LICENSE`.
 
-The paper reader uses Mozilla PDF.js 6.4.299. Its Apache 2.0 license is
+Bundled Mozilla PDF.js 6.4.299 assets are distributed under Apache 2.0. The license is
 retained in `assets/pdfjs/LICENSE`.
