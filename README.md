@@ -4,7 +4,14 @@ Research companion website by Chiming Duan, Tong Jia, Minghua He,
 Lingzhe Zhang, Haobo Wang, and Ying Li, Peking University.
 
 The manuscript is in preparation for submission to ACM Computing Surveys.
-The repository does not include the submission PDF or a public paper link.
+
+## Preprint
+
+[Preprint v1](https://github.com/method-notes/LLM-Anomaly-Detection-Survey/releases/tag/preprint-v1)
+was released on October 10, 2026. The complete 34-page manuscript is available
+as a [PDF download](https://github.com/method-notes/LLM-Anomaly-Detection-Survey/releases/download/preprint-v1/main.pdf).
+This preprint has not been peer reviewed. The release notes include the
+authors, abstract, and PDF SHA-256 checksum.
 
 ## Website
 
@@ -33,7 +40,8 @@ selected taxonomy examples. Each example has one principal method family;
 the counts are not a census of all publications. Supporting and adjacent
 works are excluded from the directory count.
 
-`assets/survey.bib` contains unpublished-manuscript citation metadata.
+`assets/survey.bib` contains citation metadata for preprint v1 and links to its
+versioned release.
 
 ## Publishing
 
