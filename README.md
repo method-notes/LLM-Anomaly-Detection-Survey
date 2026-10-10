@@ -9,7 +9,8 @@ The manuscript is in preparation for submission to ACM Computing Surveys.
 
 [Preprint v1](https://github.com/method-notes/LLM-Anomaly-Detection-Survey/releases/tag/preprint-v1)
 was released on October 10, 2026. The complete 34-page manuscript is available
-as a [PDF download](https://github.com/method-notes/LLM-Anomaly-Detection-Survey/releases/download/preprint-v1/main.pdf).
+for [direct PDF viewing](https://method-notes.github.io/LLM-Anomaly-Detection-Survey/assets/preprint-v1.pdf)
+and as a [Release download](https://github.com/method-notes/LLM-Anomaly-Detection-Survey/releases/download/preprint-v1/main.pdf).
 This preprint has not been peer reviewed. The release notes include the
 authors, abstract, and PDF SHA-256 checksum.
 
