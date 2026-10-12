@@ -14,6 +14,10 @@ and as a [Release download](https://github.com/method-notes/LLM-Anomaly-Detectio
 This preprint has not been peer reviewed. The release notes include the
 authors, abstract, and PDF SHA-256 checksum.
 
+[Read the abstract](https://method-notes.github.io/LLM-Anomaly-Detection-Survey/abstract.html).
+The abstract page includes bibliographic metadata and links to the original PDF.
+The PDF and versioned Release are unchanged.
+
 ## Website
 
 [Open the website](https://method-notes.github.io/LLM-Anomaly-Detection-Survey/).
@@ -48,6 +52,7 @@ versioned release.
 
 GitHub Pages serves the root of the `main` branch.
 All resource paths are relative and support a project-page subdirectory.
+`sitemap.xml` lists the homepage and abstract page.
 
 ## Third-Party Assets
 
