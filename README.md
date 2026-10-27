@@ -7,7 +7,7 @@ The manuscript is in preparation for submission to ACM Computing Surveys.
 
 ## Preprint
 
-[Preprint v1](https://github.com/method-notes/LLM-Anomaly-Detection-Survey/releases/tag/preprint-v1)
+[Preprint v1](https://www.alphaxiv.org/abs/2610.anomaly-detection-llm-systems)
 was released on October 10, 2026. The complete 34-page manuscript is available
 for [direct PDF viewing](https://method-notes.github.io/LLM-Anomaly-Detection-Survey/assets/preprint-v1.pdf)
 and as a [Release download](https://github.com/method-notes/LLM-Anomaly-Detection-Survey/releases/download/preprint-v1/main.pdf).
@@ -45,8 +45,8 @@ selected taxonomy examples. Each example has one principal method family;
 the counts are not a census of all publications. Supporting and adjacent
 works are excluded from the directory count.
 
-`assets/survey.bib` contains citation metadata for preprint v1 and links to its
-versioned release.
+`assets/survey.bib` contains the alphaXiv BibTeX citation and links to the
+paper's alphaXiv record.
 
 ## Publishing
 
